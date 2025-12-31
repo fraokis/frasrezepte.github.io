@@ -1,0 +1,14 @@
+title: Rezeptdatenbank
+theme: minima
+
+collections:
+  recipes:
+    output: true
+    permalink: /rezepte/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe
