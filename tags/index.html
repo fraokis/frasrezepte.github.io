@@ -1,0 +1,21 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<h1>Tags</h1>
+<ul>
+{% assign tags = site.recipes | map: "tags" | compact | uniq %}
+{% assign flat = "" | split: "" %}
+{% for arr in tags %}
+  {% for t in arr %}
+    {% assign flat = flat | push: t %}
+  {% endfor %}
+{% endfor %}
+{% assign flat = flat | uniq | sort %}
+
+{% for t in flat %}
+  <li><a href="/tags/{{ t | slugify }}/">{{ t }}</a></li>
+{% endfor %}
+</ul>
