@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article>
+  <h1>{{ page.title }}</h1>
+
+  <p>
+    {% if page.portionen %}<strong>Portionen:</strong> {{ page.portionen }}{% endif %}
+    {% if page.zeit %}
+      · <strong>Prep:</strong> {{ page.zeit.vorbereitung_min }} min
+      · <strong>Kochen:</strong> {{ page.zeit.kochen_min }} min
+    {% endif %}
+  </p>
+
+  {% if page.tags %}
+  <p>
+    <strong>Tags:</strong>
+    {% for t in page.tags %}
+      <a href="/tags/{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  </p>
+  {% endif %}
+
+  {% if page.zutaten %}
+    <h2>Zutaten</h2>
+    <ul>
+      {% for z in page.zutaten %}
+        <li>{{ z }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <h2>Zubereitung</h2>
+  {{ content }}
+</article>
