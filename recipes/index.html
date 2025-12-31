@@ -1,1 +1,17 @@
+---
+layout: default
+title: Rezepte
+permalink: /rezepte/
+---
 
+<h1>Rezepte</h1>
+
+<ul>
+  {% assign sorted = site.recipes | sort: "title" %}
+  {% for r in sorted %}
+    <li>
+      <a href="{{ r.url }}">{{ r.title }}</a>
+      {% if r.tags %} — {{ r.tags | join: ", " }}{% endif %}
+    </li>
+  {% endfor %}
+</ul>
