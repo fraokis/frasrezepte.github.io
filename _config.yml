@@ -1,5 +1,8 @@
 title: Rezeptdatenbank
 theme: minima
+url: "https://fraokis.github.io"
+baseurl: "/frasrezepte.github.io"
+
 
 collections:
   recipes:
